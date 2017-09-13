@@ -1,0 +1,7 @@
+- step:
+  id: 1
+  action: loop
+
+- step:
+  id: 2
+  action: stop
