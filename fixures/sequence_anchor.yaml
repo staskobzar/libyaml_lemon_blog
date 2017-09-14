@@ -1,0 +1,14 @@
+- step: &id001
+    instrument:      Lasik 2000
+    pulseDuration:   12
+
+- step: &id002
+    instrument:      Lasik 2000
+    pulseDuration:   10
+
+- step: *id001                   # refers to the first step (with anchor &id001)
+- step: *id002                   # refers to the second step
+- step:
+    <<: *id001
+    spotSize: 2mm                # redefines just this key, refers rest from &id001
+- step: *id002

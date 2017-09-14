@@ -1,7 +1,8 @@
 - step:
-  id: 1
-  action: loop
+    instrument:      Lasik 2000
+    pulseDuration:   12
 
 - step:
-  id: 2
-  action: stop
+    instrument:      Lasik 2000
+    pulseDuration:   10
+

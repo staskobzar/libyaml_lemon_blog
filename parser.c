@@ -92,7 +92,7 @@
 #endif
 /************* Begin control #defines *****************************************/
 #define YYCODETYPE unsigned char
-#define YYNOCODE 21
+#define YYNOCODE 19
 #define YYACTIONTYPE unsigned char
 #define ParseTOKENTYPE  const char * 
 typedef union {
@@ -106,16 +106,16 @@ typedef union {
 #define ParseARG_PDECL
 #define ParseARG_FETCH
 #define ParseARG_STORE
-#define YYNSTATE             13
-#define YYNRULE              14
-#define YY_MAX_SHIFT         12
-#define YY_MIN_SHIFTREDUCE   23
-#define YY_MAX_SHIFTREDUCE   36
-#define YY_MIN_REDUCE        37
-#define YY_MAX_REDUCE        50
-#define YY_ERROR_ACTION      51
-#define YY_ACCEPT_ACTION     52
-#define YY_NO_ACTION         53
+#define YYNSTATE             15
+#define YYNRULE              13
+#define YY_MAX_SHIFT         14
+#define YY_MIN_SHIFTREDUCE   26
+#define YY_MAX_SHIFTREDUCE   38
+#define YY_MIN_REDUCE        39
+#define YY_MAX_REDUCE        51
+#define YY_ERROR_ACTION      52
+#define YY_ACCEPT_ACTION     53
+#define YY_NO_ACTION         54
 /************* End control #defines *******************************************/
 
 /* The yyzerominor constant is used to initialize instances of
@@ -187,35 +187,37 @@ static const YYMINORTYPE yyzerominor = { 0 };
 **  yy_default[]       Default action for each state.
 **
 *********** Begin parsing tables **********************************************/
-#define YY_ACTTAB_COUNT (28)
+#define YY_ACTTAB_COUNT (33)
 static const YYACTIONTYPE yy_action[] = {
- /*     0 */    25,   34,    6,    9,   33,    8,    3,    5,    7,   27,
- /*    10 */     6,   32,   10,    3,    2,    7,   52,   24,    9,   29,
- /*    20 */    12,    4,   30,    1,   36,   31,   37,   11,
+ /*     0 */     9,    9,    8,    8,   37,   35,   11,   12,    7,   10,
+ /*    10 */    29,   30,    6,   38,   28,   27,    5,   12,   12,   10,
+ /*    20 */    10,   32,    4,   53,   33,   14,   39,    1,   36,   34,
+ /*    30 */     2,    3,   13,
 };
 static const YYCODETYPE yy_lookahead[] = {
- /*     0 */     4,   16,   17,    7,   19,    9,    3,    1,    5,   16,
- /*    10 */    17,    8,   13,    3,   15,    5,   11,    4,    7,   12,
- /*    20 */    12,    6,   18,   14,    8,    8,    0,    2,
+ /*     0 */     3,    3,    5,    5,    4,    8,    9,    7,    3,    9,
+ /*    10 */    14,   15,   16,    8,    4,    4,    1,    7,    7,    9,
+ /*    20 */     9,   12,    6,   11,   17,   12,    0,   13,    8,    8,
+ /*    30 */    13,   13,    2,
 };
-#define YY_SHIFT_USE_DFLT (-5)
-#define YY_SHIFT_COUNT (12)
-#define YY_SHIFT_MIN   (-4)
-#define YY_SHIFT_MAX   (26)
+#define YY_SHIFT_USE_DFLT (-4)
+#define YY_SHIFT_COUNT (14)
+#define YY_SHIFT_MIN   (-3)
+#define YY_SHIFT_MAX   (30)
 static const signed char yy_shift_ofst[] = {
- /*     0 */     6,   -4,   11,   -5,    3,   10,   15,   -5,   16,   17,
- /*    10 */    13,   26,   25,
+ /*     0 */    15,    0,   10,   11,   -3,   -2,   16,   -4,   -4,   -4,
+ /*    10 */     5,   20,   21,   26,   30,
 };
-#define YY_REDUCE_USE_DFLT (-16)
-#define YY_REDUCE_COUNT (7)
-#define YY_REDUCE_MIN   (-15)
-#define YY_REDUCE_MAX   (9)
+#define YY_REDUCE_USE_DFLT (-5)
+#define YY_REDUCE_COUNT (9)
+#define YY_REDUCE_MIN   (-4)
+#define YY_REDUCE_MAX   (18)
 static const signed char yy_reduce_ofst[] = {
- /*     0 */     5,  -15,   -7,   -1,    7,    8,    4,    9,
+ /*     0 */    12,   -4,   -4,   -4,    9,   13,    7,   14,   17,   18,
 };
 static const YYACTIONTYPE yy_default[] = {
- /*     0 */    51,   51,   40,   42,   51,   51,   51,   49,   51,   51,
- /*    10 */    51,   51,   51,
+ /*     0 */    52,   52,   52,   52,   52,   52,   52,   44,   44,   44,
+ /*    10 */    52,   52,   52,   52,   52,
 };
 /********** End of lemon-generated parsing tables *****************************/
 
@@ -320,8 +322,8 @@ static const char *const yyTokenName[] = {
   "$",             "STREAM_START",  "STREAM_END",    "BLOCK_MAPPING_START",
   "BLOCK_END",     "BLOCK_SEQUENCE_START",  "VALUE",         "KEY",         
   "SCALAR",        "BLOCK_ENTRY",   "error",         "yaml",        
-  "stream",        "block",         "entries",       "fields",      
-  "field",         "key",           "value",         "entry",       
+  "stream",        "block",         "field",         "entry",       
+  "key",           "value",       
 };
 #endif /* NDEBUG */
 
@@ -331,18 +333,17 @@ static const char *const yyTokenName[] = {
 static const char *const yyRuleName[] = {
  /*   0 */ "yaml ::= STREAM_START stream STREAM_END",
  /*   1 */ "stream ::= BLOCK_MAPPING_START block BLOCK_END",
- /*   2 */ "stream ::= BLOCK_SEQUENCE_START entries BLOCK_END",
- /*   3 */ "block ::= fields",
- /*   4 */ "fields ::= fields field",
- /*   5 */ "fields ::=",
+ /*   2 */ "stream ::= BLOCK_SEQUENCE_START block BLOCK_END",
+ /*   3 */ "block ::= block field",
+ /*   4 */ "block ::= block entry",
+ /*   5 */ "block ::=",
  /*   6 */ "field ::= key VALUE stream",
  /*   7 */ "field ::= key value",
  /*   8 */ "key ::= KEY SCALAR",
  /*   9 */ "value ::= VALUE SCALAR",
- /*  10 */ "entries ::= entries entry",
- /*  11 */ "entries ::= entries field",
- /*  12 */ "entries ::=",
- /*  13 */ "entry ::= BLOCK_ENTRY SCALAR",
+ /*  10 */ "value ::= VALUE BLOCK_ENTRY SCALAR",
+ /*  11 */ "entry ::= BLOCK_ENTRY BLOCK_MAPPING_START block BLOCK_END",
+ /*  12 */ "entry ::= BLOCK_ENTRY SCALAR",
 };
 #endif /* NDEBUG */
 
@@ -674,17 +675,16 @@ static const struct {
   { 11, 3 },
   { 12, 3 },
   { 12, 3 },
-  { 13, 1 },
-  { 15, 2 },
-  { 15, 0 },
-  { 16, 3 },
+  { 13, 2 },
+  { 13, 2 },
+  { 13, 0 },
+  { 14, 3 },
+  { 14, 2 },
   { 16, 2 },
   { 17, 2 },
-  { 18, 2 },
-  { 14, 2 },
-  { 14, 2 },
-  { 14, 0 },
-  { 19, 2 },
+  { 17, 3 },
+  { 15, 4 },
+  { 15, 2 },
 };
 
 static void yy_accept(yyParser*);  /* Forward Declaration */
@@ -725,14 +725,14 @@ static void yy_reduce(
   */
 /********** Begin reduce actions **********************************************/
       case 6: /* field ::= key VALUE stream */
-#line 29 "parser.y"
+#line 28 "parser.y"
 {
   printf("Block %s:\n", yymsp[-2].minor.yy0);
 }
 #line 733 "parser.c"
         break;
       case 7: /* field ::= key value */
-#line 32 "parser.y"
+#line 31 "parser.y"
 {
   printf("%s: %s\n", yymsp[-1].minor.yy0, yymsp[0].minor.yy0);
 }
@@ -740,28 +740,27 @@ static void yy_reduce(
         break;
       case 8: /* key ::= KEY SCALAR */
       case 9: /* value ::= VALUE SCALAR */ yytestcase(yyruleno==9);
-#line 36 "parser.y"
+      case 10: /* value ::= VALUE BLOCK_ENTRY SCALAR */ yytestcase(yyruleno==10);
+#line 35 "parser.y"
 { yygotominor.yy0 = yymsp[0].minor.yy0; }
-#line 746 "parser.c"
+#line 747 "parser.c"
         break;
-      case 13: /* entry ::= BLOCK_ENTRY SCALAR */
-#line 44 "parser.y"
+      case 12: /* entry ::= BLOCK_ENTRY SCALAR */
+#line 41 "parser.y"
 {
   yygotominor.yy0 = yymsp[0].minor.yy0;
   printf("    Entry: %s\n", yymsp[0].minor.yy0);
 }
-#line 754 "parser.c"
+#line 755 "parser.c"
         break;
       default:
       /* (0) yaml ::= STREAM_START stream STREAM_END */ yytestcase(yyruleno==0);
       /* (1) stream ::= BLOCK_MAPPING_START block BLOCK_END */ yytestcase(yyruleno==1);
-      /* (2) stream ::= BLOCK_SEQUENCE_START entries BLOCK_END */ yytestcase(yyruleno==2);
-      /* (3) block ::= fields */ yytestcase(yyruleno==3);
-      /* (4) fields ::= fields field */ yytestcase(yyruleno==4);
-      /* (5) fields ::= */ yytestcase(yyruleno==5);
-      /* (10) entries ::= entries entry */ yytestcase(yyruleno==10);
-      /* (11) entries ::= entries field */ yytestcase(yyruleno==11);
-      /* (12) entries ::= */ yytestcase(yyruleno==12);
+      /* (2) stream ::= BLOCK_SEQUENCE_START block BLOCK_END */ yytestcase(yyruleno==2);
+      /* (3) block ::= block field */ yytestcase(yyruleno==3);
+      /* (4) block ::= block entry */ yytestcase(yyruleno==4);
+      /* (5) block ::= */ yytestcase(yyruleno==5);
+      /* (11) entry ::= BLOCK_ENTRY BLOCK_MAPPING_START block BLOCK_END */ yytestcase(yyruleno==11);
         break;
 /********** End reduce actions ************************************************/
   };
@@ -812,7 +811,7 @@ static void yy_parse_failed(
 #line 10 "parser.y"
 
   printf("ERROR: Failed to parse.\n");
-#line 816 "parser.c"
+#line 815 "parser.c"
 /************ End %parse_failure code *****************************************/
   ParseARG_STORE; /* Suppress warning about unused %extra_argument variable */
 }
@@ -832,7 +831,7 @@ static void yy_syntax_error(
 #line 13 "parser.y"
 
   printf("ERROR: Syntax error.\n");
-#line 836 "parser.c"
+#line 835 "parser.c"
 /************ End %syntax_error code ******************************************/
   ParseARG_STORE; /* Suppress warning about unused %extra_argument variable */
 }
