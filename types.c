@@ -75,6 +75,9 @@ unsigned int yaml_tokenize(yaml_token_type_t token)
 
     case YAML_BLOCK_SEQUENCE_START_TOKEN :  return BLOCK_SEQUENCE_START;
     case YAML_BLOCK_ENTRY_TOKEN          :  return BLOCK_ENTRY;
+
+    case YAML_ANCHOR_TOKEN               :  return ANCHOR;
+    case YAML_ALIAS_TOKEN                :  return ALIAS;
     /*
     case YAML_VERSION_DIRECTIVE_TOKEN    :  return VERSION_DIRECTIVE;
     case YAML_TAG_DIRECTIVE_TOKEN        :  return TAG_DIRECTIVE;
@@ -85,8 +88,6 @@ unsigned int yaml_tokenize(yaml_token_type_t token)
     case YAML_FLOW_MAPPING_START_TOKEN   :  return FLOW_MAPPING_START;
     case YAML_FLOW_MAPPING_END_TOKEN     :  return FLOW_MAPPING_END;
     case YAML_FLOW_ENTRY_TOKEN           :  return FLOW_ENTRY;
-    case YAML_ALIAS_TOKEN                :  return ALIAS;
-    case YAML_ANCHOR_TOKEN               :  return ANCHOR;
     case YAML_TAG_TOKEN                  :  return TAG;
     */
     default: return 0;

@@ -36,8 +36,11 @@ key(A) ::= KEY SCALAR(K) . { A = K; }
 
 value(A) ::= VALUE SCALAR(V) . { A = V; }
 value(A) ::= VALUE BLOCK_ENTRY SCALAR(V) . { A = V; }
+value ::= VALUE ANCHOR .
+value ::= VALUE ALIAS .
 
 entry ::= BLOCK_ENTRY BLOCK_MAPPING_START block BLOCK_END .
+entry ::= BLOCK_MAPPING_START block BLOCK_END .
 entry(A) ::= BLOCK_ENTRY SCALAR(E) . {
   A = E;
   printf("    Entry: %s\n", E);

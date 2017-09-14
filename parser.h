@@ -7,3 +7,5 @@
 #define KEY                              7
 #define SCALAR                           8
 #define BLOCK_ENTRY                      9
+#define ANCHOR                          10
+#define ALIAS                           11

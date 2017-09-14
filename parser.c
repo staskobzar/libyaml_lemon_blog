@@ -92,7 +92,7 @@
 #endif
 /************* Begin control #defines *****************************************/
 #define YYCODETYPE unsigned char
-#define YYNOCODE 19
+#define YYNOCODE 21
 #define YYACTIONTYPE unsigned char
 #define ParseTOKENTYPE  const char * 
 typedef union {
@@ -106,16 +106,16 @@ typedef union {
 #define ParseARG_PDECL
 #define ParseARG_FETCH
 #define ParseARG_STORE
-#define YYNSTATE             15
-#define YYNRULE              13
-#define YY_MAX_SHIFT         14
-#define YY_MIN_SHIFTREDUCE   26
-#define YY_MAX_SHIFTREDUCE   38
-#define YY_MIN_REDUCE        39
-#define YY_MAX_REDUCE        51
-#define YY_ERROR_ACTION      52
-#define YY_ACCEPT_ACTION     53
-#define YY_NO_ACTION         54
+#define YYNSTATE             17
+#define YYNRULE              16
+#define YY_MAX_SHIFT         16
+#define YY_MIN_SHIFTREDUCE   31
+#define YY_MAX_SHIFTREDUCE   46
+#define YY_MIN_REDUCE        47
+#define YY_MAX_REDUCE        62
+#define YY_ERROR_ACTION      63
+#define YY_ACCEPT_ACTION     64
+#define YY_NO_ACTION         65
 /************* End control #defines *******************************************/
 
 /* The yyzerominor constant is used to initialize instances of
@@ -187,37 +187,40 @@ static const YYMINORTYPE yyzerominor = { 0 };
 **  yy_default[]       Default action for each state.
 **
 *********** Begin parsing tables **********************************************/
-#define YY_ACTTAB_COUNT (33)
+#define YY_ACTTAB_COUNT (43)
 static const YYACTIONTYPE yy_action[] = {
- /*     0 */     9,    9,    8,    8,   37,   35,   11,   12,    7,   10,
- /*    10 */    29,   30,    6,   38,   28,   27,    5,   12,   12,   10,
- /*    20 */    10,   32,    4,   53,   33,   14,   39,    1,   36,   34,
- /*    30 */     2,    3,   13,
+ /*     0 */    11,   11,   10,   10,    6,   40,   13,   42,   43,    8,
+ /*    10 */    45,    9,   64,   14,   37,   12,   46,    8,   44,   16,
+ /*    20 */    38,   14,    5,   12,    1,    8,   33,    2,    3,   14,
+ /*    30 */     4,   12,   47,    8,   32,   41,   39,   14,   15,   12,
+ /*    40 */    34,   35,    7,
 };
 static const YYCODETYPE yy_lookahead[] = {
- /*     0 */     3,    3,    5,    5,    4,    8,    9,    7,    3,    9,
- /*    10 */    14,   15,   16,    8,    4,    4,    1,    7,    7,    9,
- /*    20 */     9,   12,    6,   11,   17,   12,    0,   13,    8,    8,
- /*    30 */    13,   13,    2,
+ /*     0 */     3,    3,    5,    5,    1,    8,    9,   10,   11,    3,
+ /*    10 */     4,    3,   13,    7,   14,    9,    8,    3,    4,   14,
+ /*    20 */    19,    7,    6,    9,   15,    3,    4,   15,   15,    7,
+ /*    30 */    15,    9,    0,    3,    4,    8,    8,    7,    2,    9,
+ /*    40 */    16,   17,   18,
 };
 #define YY_SHIFT_USE_DFLT (-4)
-#define YY_SHIFT_COUNT (14)
+#define YY_SHIFT_COUNT (16)
 #define YY_SHIFT_MIN   (-3)
-#define YY_SHIFT_MAX   (30)
+#define YY_SHIFT_MAX   (36)
 static const signed char yy_shift_ofst[] = {
- /*     0 */    15,    0,   10,   11,   -3,   -2,   16,   -4,   -4,   -4,
- /*    10 */     5,   20,   21,   26,   30,
+ /*     0 */     3,    6,   14,   22,   30,   -3,   -2,   16,   -4,   -4,
+ /*    10 */    -4,   -4,    8,   27,   28,   32,   36,
 };
-#define YY_REDUCE_USE_DFLT (-5)
-#define YY_REDUCE_COUNT (9)
-#define YY_REDUCE_MIN   (-4)
-#define YY_REDUCE_MAX   (18)
+#define YY_REDUCE_USE_DFLT (-2)
+#define YY_REDUCE_COUNT (11)
+#define YY_REDUCE_MIN   (-1)
+#define YY_REDUCE_MAX   (24)
 static const signed char yy_reduce_ofst[] = {
- /*     0 */    12,   -4,   -4,   -4,    9,   13,    7,   14,   17,   18,
+ /*     0 */    -1,   24,   24,   24,   24,    0,    5,    1,    9,   12,
+ /*    10 */    13,   15,
 };
 static const YYACTIONTYPE yy_default[] = {
- /*     0 */    52,   52,   52,   52,   52,   52,   52,   44,   44,   44,
- /*    10 */    52,   52,   52,   52,   52,
+ /*     0 */    63,   63,   63,   63,   63,   63,   63,   63,   52,   52,
+ /*    10 */    52,   52,   63,   63,   63,   63,   63,
 };
 /********** End of lemon-generated parsing tables *****************************/
 
@@ -321,9 +324,9 @@ void ParseTrace(FILE *TraceFILE, char *zTracePrompt){
 static const char *const yyTokenName[] = { 
   "$",             "STREAM_START",  "STREAM_END",    "BLOCK_MAPPING_START",
   "BLOCK_END",     "BLOCK_SEQUENCE_START",  "VALUE",         "KEY",         
-  "SCALAR",        "BLOCK_ENTRY",   "error",         "yaml",        
-  "stream",        "block",         "field",         "entry",       
-  "key",           "value",       
+  "SCALAR",        "BLOCK_ENTRY",   "ANCHOR",        "ALIAS",       
+  "error",         "yaml",          "stream",        "block",       
+  "field",         "entry",         "key",           "value",       
 };
 #endif /* NDEBUG */
 
@@ -342,8 +345,11 @@ static const char *const yyRuleName[] = {
  /*   8 */ "key ::= KEY SCALAR",
  /*   9 */ "value ::= VALUE SCALAR",
  /*  10 */ "value ::= VALUE BLOCK_ENTRY SCALAR",
- /*  11 */ "entry ::= BLOCK_ENTRY BLOCK_MAPPING_START block BLOCK_END",
- /*  12 */ "entry ::= BLOCK_ENTRY SCALAR",
+ /*  11 */ "value ::= VALUE ANCHOR",
+ /*  12 */ "value ::= VALUE ALIAS",
+ /*  13 */ "entry ::= BLOCK_ENTRY BLOCK_MAPPING_START block BLOCK_END",
+ /*  14 */ "entry ::= BLOCK_MAPPING_START block BLOCK_END",
+ /*  15 */ "entry ::= BLOCK_ENTRY SCALAR",
 };
 #endif /* NDEBUG */
 
@@ -672,19 +678,22 @@ static const struct {
   YYCODETYPE lhs;         /* Symbol on the left-hand side of the rule */
   unsigned char nrhs;     /* Number of right-hand side symbols in the rule */
 } yyRuleInfo[] = {
-  { 11, 3 },
-  { 12, 3 },
-  { 12, 3 },
-  { 13, 2 },
-  { 13, 2 },
-  { 13, 0 },
+  { 13, 3 },
   { 14, 3 },
-  { 14, 2 },
-  { 16, 2 },
-  { 17, 2 },
-  { 17, 3 },
-  { 15, 4 },
+  { 14, 3 },
   { 15, 2 },
+  { 15, 2 },
+  { 15, 0 },
+  { 16, 3 },
+  { 16, 2 },
+  { 18, 2 },
+  { 19, 2 },
+  { 19, 3 },
+  { 19, 2 },
+  { 19, 2 },
+  { 17, 4 },
+  { 17, 3 },
+  { 17, 2 },
 };
 
 static void yy_accept(yyParser*);  /* Forward Declaration */
@@ -729,29 +738,29 @@ static void yy_reduce(
 {
   printf("Block %s:\n", yymsp[-2].minor.yy0);
 }
-#line 733 "parser.c"
+#line 742 "parser.c"
         break;
       case 7: /* field ::= key value */
 #line 31 "parser.y"
 {
   printf("%s: %s\n", yymsp[-1].minor.yy0, yymsp[0].minor.yy0);
 }
-#line 740 "parser.c"
+#line 749 "parser.c"
         break;
       case 8: /* key ::= KEY SCALAR */
       case 9: /* value ::= VALUE SCALAR */ yytestcase(yyruleno==9);
       case 10: /* value ::= VALUE BLOCK_ENTRY SCALAR */ yytestcase(yyruleno==10);
 #line 35 "parser.y"
 { yygotominor.yy0 = yymsp[0].minor.yy0; }
-#line 747 "parser.c"
+#line 756 "parser.c"
         break;
-      case 12: /* entry ::= BLOCK_ENTRY SCALAR */
-#line 41 "parser.y"
+      case 15: /* entry ::= BLOCK_ENTRY SCALAR */
+#line 44 "parser.y"
 {
   yygotominor.yy0 = yymsp[0].minor.yy0;
   printf("    Entry: %s\n", yymsp[0].minor.yy0);
 }
-#line 755 "parser.c"
+#line 764 "parser.c"
         break;
       default:
       /* (0) yaml ::= STREAM_START stream STREAM_END */ yytestcase(yyruleno==0);
@@ -760,7 +769,10 @@ static void yy_reduce(
       /* (3) block ::= block field */ yytestcase(yyruleno==3);
       /* (4) block ::= block entry */ yytestcase(yyruleno==4);
       /* (5) block ::= */ yytestcase(yyruleno==5);
-      /* (11) entry ::= BLOCK_ENTRY BLOCK_MAPPING_START block BLOCK_END */ yytestcase(yyruleno==11);
+      /* (11) value ::= VALUE ANCHOR */ yytestcase(yyruleno==11);
+      /* (12) value ::= VALUE ALIAS */ yytestcase(yyruleno==12);
+      /* (13) entry ::= BLOCK_ENTRY BLOCK_MAPPING_START block BLOCK_END */ yytestcase(yyruleno==13);
+      /* (14) entry ::= BLOCK_MAPPING_START block BLOCK_END */ yytestcase(yyruleno==14);
         break;
 /********** End reduce actions ************************************************/
   };
@@ -811,7 +823,7 @@ static void yy_parse_failed(
 #line 10 "parser.y"
 
   printf("ERROR: Failed to parse.\n");
-#line 815 "parser.c"
+#line 827 "parser.c"
 /************ End %parse_failure code *****************************************/
   ParseARG_STORE; /* Suppress warning about unused %extra_argument variable */
 }
@@ -831,7 +843,7 @@ static void yy_syntax_error(
 #line 13 "parser.y"
 
   printf("ERROR: Syntax error.\n");
-#line 835 "parser.c"
+#line 847 "parser.c"
 /************ End %syntax_error code ******************************************/
   ParseARG_STORE; /* Suppress warning about unused %extra_argument variable */
 }
