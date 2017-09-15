@@ -91,9 +91,9 @@ unsigned int yaml_tokenize(yaml_token_type_t token)
     case YAML_VERSION_DIRECTIVE_TOKEN    :  return VERSION_DIRECTIVE;
     /*
     case YAML_TAG_DIRECTIVE_TOKEN        :  return TAG_DIRECTIVE;
+    */
     case YAML_DOCUMENT_START_TOKEN       :  return DOCUMENT_START;
     case YAML_DOCUMENT_END_TOKEN         :  return DOCUMENT_END;
-    */
     default: return 0;
   }
 }

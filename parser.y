@@ -16,8 +16,15 @@
 
 %token_type { const char * }
 
-yaml ::= STREAM_START stream STREAM_END .
-yaml ::= STREAM_START VERSION_DIRECTIVE stream STREAM_END .
+yaml ::= STREAM_START docs STREAM_END .
+yaml ::= STREAM_START VERSION_DIRECTIVE docs STREAM_END .
+
+docs ::= stream .
+docs ::= docs doc .
+docs ::= .
+
+doc ::= DOCUMENT_START stream DOCUMENT_END .
+doc ::= DOCUMENT_START stream .
 
 stream ::= BLOCK_MAPPING_START block BLOCK_END .
 stream ::= BLOCK_SEQUENCE_START block BLOCK_END .
