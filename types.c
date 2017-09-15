@@ -78,17 +78,21 @@ unsigned int yaml_tokenize(yaml_token_type_t token)
 
     case YAML_ANCHOR_TOKEN               :  return ANCHOR;
     case YAML_ALIAS_TOKEN                :  return ALIAS;
-    /*
+
+    case YAML_FLOW_SEQUENCE_START_TOKEN  :  return FLOW_SEQUENCE_START;
+    case YAML_FLOW_SEQUENCE_END_TOKEN    :  return FLOW_SEQUENCE_END;
+    case YAML_FLOW_ENTRY_TOKEN           :  return FLOW_ENTRY;
+
+    case YAML_FLOW_MAPPING_START_TOKEN   :  return FLOW_MAPPING_START;
+    case YAML_FLOW_MAPPING_END_TOKEN     :  return FLOW_MAPPING_END;
+
+    case YAML_TAG_TOKEN                  :  return TAG;
+
     case YAML_VERSION_DIRECTIVE_TOKEN    :  return VERSION_DIRECTIVE;
+    /*
     case YAML_TAG_DIRECTIVE_TOKEN        :  return TAG_DIRECTIVE;
     case YAML_DOCUMENT_START_TOKEN       :  return DOCUMENT_START;
     case YAML_DOCUMENT_END_TOKEN         :  return DOCUMENT_END;
-    case YAML_FLOW_SEQUENCE_START_TOKEN  :  return FLOW_SEQUENCE_START;
-    case YAML_FLOW_SEQUENCE_END_TOKEN    :  return FLOW_SEQUENCE_END;
-    case YAML_FLOW_MAPPING_START_TOKEN   :  return FLOW_MAPPING_START;
-    case YAML_FLOW_MAPPING_END_TOKEN     :  return FLOW_MAPPING_END;
-    case YAML_FLOW_ENTRY_TOKEN           :  return FLOW_ENTRY;
-    case YAML_TAG_TOKEN                  :  return TAG;
     */
     default: return 0;
   }
