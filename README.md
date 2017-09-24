@@ -1,7 +1,7 @@
-# libyaml_lemon_blog
+# libyaml and lemon
 
-This is implementation of libyaml and lemon parser to process YAML in C.
+This is example of implementation of YAML processing in C with libyaml and lemon parser.
 
-There is blog article with more details:
+Check this blog article with more details:
 
 https://staskobzar.blogspot.ca/2017/09/yaml-syntax-processing-in-c-with.html
